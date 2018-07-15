@@ -1,4 +1,4 @@
-/* Name: phoneFunc.c ver 1.0
+/* Name: phoneFunc.c ver 1.1
 * Content: 전화번호 컨트롤 함수
 * Implementation: YSW
 *
@@ -43,6 +43,46 @@ void ShowAllData(void) {
 		ShowPhoneInfo(phoneList[i]);
 	}
 	printf("출력이 완료되었습니다.\n");
+	getchar();
+}
+
+void SearchPhoneData(void) {
+	char searchName[NAME_LEN];
+	printf("찾는 이름은? ");
+	gets(searchName);
+	for (int i = 0; i < numOfData; i++) {
+		if (strcmp(phoneList[i].name, searchName) == 0) {
+			ShowPhoneInfo(phoneList[i]);
+			printf("검색이 완료되었습니다.\n");
+			return;
+		}
+	}
+	printf("데이터가 존재하지 않습니다.\n");
+	getchar();
+}
+
+void DeletePhoneData(void) {
+	char searchName[NAME_LEN];
+	printf("찾는 이름은? ");
+	gets(searchName);
+	for (int i = 0; i < numOfData; i++) {
+		if (strcmp(phoneList[i].name, searchName) == 0) {
+			if (i == numOfData) {
+				numOfData--;
+				printf("삭제가 완료되었습니다.\n");
+				return;
+			}
+			else {
+				for (int j = i + 1; j <= numOfData; j++) {
+					phoneList[j - 1] = phoneList[j];
+				}
+				numOfData--;
+				printf("삭제가 완료되었습니다.\n");
+				return;
+			}
+		}
+	}
+	printf("데이터가 존재하지 않습니다.\n");
 	getchar();
 }
 /* end of file */
