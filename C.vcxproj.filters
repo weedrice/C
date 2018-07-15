@@ -13,13 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Part2">
+      <UniqueIdentifier>{558f6c4b-0f70-4eaa-83a2-382a6b22ed2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Part2\Phonebook">
+      <UniqueIdentifier>{8bf0d0df-a493-4eab-a204-c70a2037f8e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Part2">
+      <UniqueIdentifier>{e272c7c8-f874-41a2-8986-9af9cfba4ec5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Part2\Phonebook">
+      <UniqueIdentifier>{5121eabc-5f67-4846-9aa6-18c54233dd51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="40-2.c">
-      <Filter>소스 파일</Filter>
+    <ClInclude Include="common.h">
+      <Filter>헤더 파일\Part2\Phonebook</Filter>
+    </ClInclude>
+    <ClInclude Include="screenOut.h">
+      <Filter>헤더 파일\Part2\Phonebook</Filter>
+    </ClInclude>
+    <ClInclude Include="phoneData.h">
+      <Filter>헤더 파일\Part2\Phonebook</Filter>
+    </ClInclude>
+    <ClInclude Include="phoneFunc.h">
+      <Filter>헤더 파일\Part2\Phonebook</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>소스 파일\Part2\Phonebook</Filter>
     </ClCompile>
-    <ClCompile Include="40-3.c">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="screenOut.c">
+      <Filter>소스 파일\Part2\Phonebook</Filter>
+    </ClCompile>
+    <ClCompile Include="phonefunc.c">
+      <Filter>소스 파일\Part2\Phonebook</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
