@@ -1,8 +1,8 @@
-/* Name: phoneFunc.c ver 1.1
+/* Name: phoneFunc.c ver 1.4
 * Content: 전화번호 컨트롤 함수
-* Implementation: YSW
+* Implementation: YJW
 *
-* Last modified 2008/01/01
+* Last modified 2018/07/16
 */
 
 #include "common.h"
@@ -25,14 +25,27 @@ void InputPhoneData(void) {
 		return;
 	}
 
-	phoneList[numOfData] = (phoneData*)malloc(sizeof(phoneData));
+	phoneData* temp = (phoneData*)malloc(sizeof(phoneData));
 
 	printf("이름 입력: ");
-	gets(phoneList[numOfData]->name);
+	gets(temp->name);
 	printf("전화번호 입력: ");
-	gets(phoneList[numOfData++]->phoneNum);
+	gets(temp->phoneNum);
+
+	for (int i = 0; i < numOfData; i++) {
+		if (strcmp(temp->name, phoneList[i]->name) == 0) {
+			if (strcmp(temp->phoneNum, phoneList[i]->phoneNum) == 0) {
+				printf("이미 입력된 데이터 입니다.\n");
+				getchar();
+				return;
+			}
+		}
+	}
+
+	phoneList[numOfData++] = temp;
 	printf("입력이 완료되었습니다.\n");
 	getchar();
+	return;
 }
 
 /* 함   수: void ShowAllData(void)
@@ -52,46 +65,79 @@ void SearchPhoneData(void) {
 	char searchName[NAME_LEN];
 	printf("찾는 이름은? ");
 	gets(searchName);
+	int count = 0;
 	for (int i = 0; i < numOfData; i++) {
 		if (strcmp(phoneList[i]->name, searchName) == 0) {
 			ShowPhoneInfoByPtr(phoneList[i]);
-			printf("검색이 완료되었습니다.\n");
-			getchar();
-			return;
+			count++;
 		}
 	}
-	printf("데이터가 존재하지 않습니다.\n");
-	getchar();
+
+	if (count > 0) {
+		printf("검색이 완료되었습니다.\n");
+		getchar();
+	}
+	else {
+		printf("데이터가 존재하지 않습니다.\n");
+		getchar();
+	}
+	
 }
 
 void DeletePhoneData(void) {
 	char searchName[NAME_LEN];
 	printf("찾는 이름은? ");
 	gets(searchName);
+	int searchLocation[LIST_NUM];
+	int searchCount = 0;
+
 	for (int i = 0; i < numOfData; i++) {
 		if (strcmp(phoneList[i]->name, searchName) == 0) {
-			if (i == numOfData) {
-				free(phoneList[i]);
-				numOfData--;
-				printf("삭제가 완료되었습니다.\n");
-				getchar();
-				return;
-			}
-			else {
-				for (int j = i + 1; j <= numOfData; j++) {
-					free(phoneList[j - 1]);
-					phoneList[j - 1] = phoneList[j];
-					break;
-				}
-				numOfData--;
-				printf("삭제가 완료되었습니다.\n");
-				getchar();
-
-				return;
-			}
+			searchLocation[searchCount++] = i;
+			continue;
 		}
 	}
+
+	if (searchCount == 1) {
+		for (int i = searchLocation[0] + 1; i <= numOfData; i++) {
+			free(phoneList[i - 1]);
+			phoneList[i - 1] = phoneList[i];
+		}
+		numOfData--;
+		printf("삭제가 완료되었습니다.\n");
+		getchar();
+
+		return;
+	}
+	else if(searchCount > 1) {
+		int select;
+		for (int i = 0; i < searchCount; i++) {
+			printf("NUM.  %d\n", i + 1);
+			ShowPhoneInfoByPtr(phoneList[searchLocation[i]]);
+		}
+		printf("선택: ");
+		scanf("%d", &select);
+		getchar();
+		
+		if (select < searchCount) {
+			free(phoneList[searchLocation[select-1]]);
+			for (int i = searchLocation[select-1] + 1; i <= numOfData; i++) {
+				phoneList[i - 1] = phoneList[i];
+			}
+			numOfData--;
+			printf("삭제가 완료되었습니다.\n");
+			getchar();
+
+			return;
+		}
+		else {
+			printf("잘못된 값을 입력하셨습니다.\n");
+			return;
+		}
+	}
+
 	printf("데이터가 존재하지 않습니다.\n");
 	getchar();
 }
+
 /* end of file */

@@ -1,8 +1,8 @@
-/* Name: screenOut.h ver 1.0
+/* Name: screenOut.h ver 1.1
  * Content: 콘솔 출력을 위한 함수 선언
- * Implementation: YSW
+ * Implementation: YJW
  *
- * Last modified 2008/01/01
+ * Last modified 2017/07/16
  */
 
 #ifndef __SCREENOUT_H__

@@ -1,8 +1,8 @@
-/* Name: screenOut.c ver 1.0
+/* Name: screenOut.c ver 1.2
  * Content: 콘솔 출력을 위한 함수 정의
- * Implementation: YSW
+ * Implementation: YJW
  *
- * Last modified 2008/01/01
+ * Last modified 2017/07/16
  */
 
 #include "common.h"
