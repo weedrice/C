@@ -3,7 +3,7 @@
 #ifndef __GAME_H__
 #define __GAME_H__
 
-enum {ODD = 1, EVEN};
+enum {SCISSORS = 1, ROCK, PAPER};
 
 int ChoiceOfCom(void);
 int ChoiceOfMe(void);

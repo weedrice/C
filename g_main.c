@@ -15,12 +15,19 @@ int main(void) {
 	puts("★★★★★★ 결과! ★★★★★★!!");
 	WhoIsWinner(com, you);
 
-	printf("▷ 컴퓨터의 선택은 %d \n", com);
-
-	if(you == EVEN)
-		printf("▷ 당신의 선택은 짝수. ", com);
+	if (com == SCISSORS-1)
+		printf("컴퓨터의 선택: 가위. \n");
+	else if (com == ROCK-1)
+		printf("컴퓨터의 선택: 주먹. \n");
 	else
-		printf("▷ 당신의 선택은 홀수. ", com);
+		printf("컴퓨터의 선택: 보. \n");
+
+	if(you == SCISSORS)
+		printf("당신의 선택: 가위. ");
+	else if(you == ROCK)
+		printf("당신의 선택: 주먹. ");
+	else
+		printf("당신의 선택: 보. ");
 
 	puts("");
 	return 0;
