@@ -1,8 +1,8 @@
-/* Name: main.c ver1.0
+/* Name: main.c ver1.1
  * Content: main ÇÔ¼ö
- * Implementation: YSW
+ * Implementation: YJW
  *
- * Last modified 2008/01/01
+ * Last modified 2017/07/17
  */
 
 #include "common.h"
@@ -17,6 +17,8 @@ enum { INPUT = 1, SHOWALL, SEARCH, DELETE, QUIT };
  *
  */
 int main(void) {
+	LoadDataFromFile();
+
 	int inputMenu = 0;
 
 	while (1) {
@@ -45,6 +47,7 @@ int main(void) {
 			break;
 		}
 	}
+	StoreDataToFile();
 	return 0;
 }
 

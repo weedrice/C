@@ -1,4 +1,4 @@
-/* Name: phoneFunc.c ver 1.4
+/* Name: phoneFunc.c ver 1.5
 * Content: 전화번호 컨트롤 함수
 * Implementation: YJW
 *
@@ -138,6 +138,47 @@ void DeletePhoneData(void) {
 
 	printf("데이터가 존재하지 않습니다.\n");
 	getchar();
+}
+
+void StoreDataToFile(void) {
+	FILE *fp = fopen("phoneData.dat", "w");
+	if (fp == NULL) {
+		printf("파일을 저장할 때 에러가 발생했습니다.\n");
+		return;
+	}
+
+	fwrite(&numOfData, sizeof(int), 1, fp);
+	for (int i = 0; i < numOfData; i++) {
+		fprintf(fp, "%s\n%s\n", phoneList[i]->name, phoneList[i]->phoneNum);
+		free(phoneList[i]);
+	}
+
+	fclose(fp);
+}
+
+void LoadDataFromFile(void) {
+	FILE *fp = fopen("phoneData.dat", "r");
+	if (fp == NULL) {
+		printf("읽어들일 파일이 없습니다.\n");
+		return;
+	}
+
+	fread(&numOfData, sizeof(int), 1, fp);
+
+	for (int i = 0; i < numOfData; i++) {
+		phoneList[i] = (phoneData*)malloc(sizeof(phoneData));
+		fgets(phoneList[i]->name, NAME_LEN, fp);
+
+		int temp = strlen(phoneList[i]->name);
+		phoneList[i]->name[temp - 1] = 0;
+
+		fgets(phoneList[i]->phoneNum, PHONE_LEN, fp);
+
+		temp = strlen(phoneList[i]->phoneNum);
+		phoneList[i]->phoneNum[temp - 1] = 0;
+	}
+
+	fclose(fp);
 }
 
 /* end of file */
