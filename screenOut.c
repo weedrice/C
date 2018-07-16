@@ -39,4 +39,11 @@ void ShowPhoneInfo(phoneData phone) {
 	printf("└---------------------------\n\n");
 }
 
+void ShowPhoneInfoByPtr(phoneData * pPhone) {
+	printf("┌---------------------------\n");
+	printf("│ ▶ 이름: %s \n", pPhone->name);
+	printf("│ ▶ 전화번호: %s\n", pPhone->phoneNum);
+	printf("└---------------------------\n\n");
+}
+
 /* end of file */
