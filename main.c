@@ -1,4 +1,4 @@
-/* Name: main.c ver 1.3
+/* Name: main.c ver 1.4
  * Content: main 함수
  * Implementation: YJW
  *
@@ -17,7 +17,7 @@ enum { INPUT = 1, SHOWALL, SEARCH, DELETE, CHANGE, QUIT };
  *
  */
 int main(void) {
-	LoadDataFromFile();
+	LoadDataFromFileInStruct();
 
 	int inputMenu = 0;
 
@@ -46,11 +46,12 @@ int main(void) {
 		}
 
 		if (inputMenu == QUIT) {
+			StoreDataToFileInStruct();
 			puts("이용해 주셔서 고마워요~");
 			break;
 		}
 	}
-	StoreDataToFile();
+
 	return 0;
 }
 

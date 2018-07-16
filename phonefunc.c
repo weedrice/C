@@ -1,4 +1,4 @@
-/* Name: phoneFunc.c ver 1.6
+/* Name: phoneFunc.c ver 1.7
 * Content: 전화번호 컨트롤 함수
 * Implementation: YJW
 *
@@ -13,6 +13,40 @@
 
 int numOfData = 0;
 phoneData* phoneList[LIST_NUM];
+
+
+void StoreDataToFileInStruct(void) {
+	FILE *fp = fopen("phoneDataStruct.dat", "wb");
+
+	if (fp == NULL) {
+		printf("파일 저장 실패!\n");
+		return;
+	}
+	fwrite(&numOfData, sizeof(int), 1, fp);
+
+	for (int i = 0; i < numOfData; i++) {
+		fwrite(phoneList[i], sizeof(phoneData), 1, fp);
+	}
+
+	fclose(fp);
+}
+
+void LoadDataFromFileInStruct(void) {
+	FILE* fp = fopen("phoneDataStruct.dat", "rb");
+	if (fp == NULL) {
+		printf("불러올 파일이 없습니다.\n");
+		return;
+	}
+
+	fread(&numOfData, sizeof(int), 1, fp);
+	for (int i = 0; i < numOfData; i++) {
+		phoneList[i] = (phoneData*)malloc(sizeof(phoneData));
+
+		fread(phoneList[i], sizeof(phoneData), 1, fp);
+	}
+
+	fclose(fp);
+}
 
 /* 함   수: void ImputphoneData(void)
  * 기   능: 전화번호 관련 데이터 입력 받아서 저장
@@ -37,6 +71,7 @@ void InputPhoneData(void) {
 			if (strcmp(temp->phoneNum, phoneList[i]->phoneNum) == 0) {
 				printf("이미 입력된 데이터 입니다.\n");
 				getchar();
+				StoreDataToFileInStruct();
 				return;
 			}
 		}
@@ -45,6 +80,8 @@ void InputPhoneData(void) {
 	phoneList[numOfData++] = temp;
 	printf("입력이 완료되었습니다.\n");
 	getchar();
+
+	StoreDataToFileInStruct();
 	return;
 }
 
@@ -94,7 +131,6 @@ void DeletePhoneData(void) {
 	for (int i = 0; i < numOfData; i++) {
 		if (strcmp(phoneList[i]->name, searchName) == 0) {
 			searchLocation[searchCount++] = i;
-			continue;
 		}
 	}
 
@@ -107,6 +143,7 @@ void DeletePhoneData(void) {
 		printf("삭제가 완료되었습니다.\n");
 		getchar();
 
+		StoreDataToFileInStruct();
 		return;
 	}
 	else if(searchCount > 1) {
@@ -128,6 +165,7 @@ void DeletePhoneData(void) {
 			printf("삭제가 완료되었습니다.\n");
 			getchar();
 
+			StoreDataToFileInStruct();
 			return;
 		}
 		else {
@@ -191,7 +229,6 @@ void ChangePhoneData(void) {
 	for (int i = 0; i < numOfData; i++) {
 		if (strcmp(phoneList[i]->name, searchName) == 0) {
 			searchLocation[searchCount++] = i;
-			continue;
 		}
 	}
 
@@ -203,6 +240,7 @@ void ChangePhoneData(void) {
 		printf("변경이 완료되었습니다.\n");
 		getchar();
 
+		StoreDataToFileInStruct();
 		return;
 	}
 	else if (searchCount > 1) {
@@ -223,6 +261,7 @@ void ChangePhoneData(void) {
 			printf("변경이 완료되었습니다.\n");
 			getchar();
 
+			StoreDataToFileInStruct();
 			return;
 		}
 		else {
@@ -234,5 +273,6 @@ void ChangePhoneData(void) {
 	printf("데이터가 존재하지 않습니다.\n");
 	getchar();
 }
+
 
 /* end of file */

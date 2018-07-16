@@ -1,4 +1,4 @@
-/* Name: phonefunc.h ver 1.3
+/* Name: phonefunc.h ver 1.4
  * Content: 전화번호 컨트롤 함수들의 선언
  * Implementation: YJW
  *
@@ -9,6 +9,8 @@
 
 #include "phoneData.h"
 
+void StoreDataToFileInStruct(void);
+void LoadDataFromFileInStruct(void);
 void InputPhoneData(void);
 void ShowAllData(void);
 void SearchPhoneData(void);
