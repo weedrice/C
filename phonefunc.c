@@ -1,4 +1,4 @@
-/* Name: phoneFunc.c ver 1.5
+/* Name: phoneFunc.c ver 1.6
 * Content: 전화번호 컨트롤 함수
 * Implementation: YJW
 *
@@ -179,6 +179,60 @@ void LoadDataFromFile(void) {
 	}
 
 	fclose(fp);
+}
+
+void ChangePhoneData(void) {
+	char searchName[NAME_LEN];
+	printf("변경 대상의 이름은? ");
+	gets(searchName);
+	int searchLocation[LIST_NUM];
+	int searchCount = 0;
+
+	for (int i = 0; i < numOfData; i++) {
+		if (strcmp(phoneList[i]->name, searchName) == 0) {
+			searchLocation[searchCount++] = i;
+			continue;
+		}
+	}
+
+	if (searchCount == 1) {
+		printf("변경할 전화번호는? ");
+		char changeNum[PHONE_LEN];
+		gets(changeNum);
+		strcpy(phoneList[searchLocation[0]]->phoneNum, changeNum);
+		printf("변경이 완료되었습니다.\n");
+		getchar();
+
+		return;
+	}
+	else if (searchCount > 1) {
+		int select;
+		for (int i = 0; i < searchCount; i++) {
+			printf("NUM.  %d\n", i + 1);
+			ShowPhoneInfoByPtr(phoneList[searchLocation[i]]);
+		}
+		printf("선택: ");
+		scanf("%d", &select);
+		getchar();
+
+		if (select-1 < searchCount) {
+			printf("변경할 전화번호는? ");
+			char changeNum[PHONE_LEN];
+			gets(changeNum);
+			strcpy(phoneList[searchLocation[select-1]]->phoneNum, changeNum);
+			printf("변경이 완료되었습니다.\n");
+			getchar();
+
+			return;
+		}
+		else {
+			printf("잘못된 값을 입력하셨습니다.\n");
+			return;
+		}
+	}
+
+	printf("데이터가 존재하지 않습니다.\n");
+	getchar();
 }
 
 /* end of file */
