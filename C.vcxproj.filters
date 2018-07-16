@@ -25,30 +25,27 @@
     <Filter Include="헤더 파일\Part2\Phonebook">
       <UniqueIdentifier>{5121eabc-5f67-4846-9aa6-18c54233dd51}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Part2\Game">
+      <UniqueIdentifier>{f0ec4d08-46d9-48e1-b5a2-a843ac418820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Part2\Game">
+      <UniqueIdentifier>{e065a97d-76eb-4d7a-b90b-10a574f882ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="common.h">
-      <Filter>헤더 파일\Part2\Phonebook</Filter>
-    </ClInclude>
-    <ClInclude Include="screenOut.h">
-      <Filter>헤더 파일\Part2\Phonebook</Filter>
-    </ClInclude>
-    <ClInclude Include="phoneData.h">
-      <Filter>헤더 파일\Part2\Phonebook</Filter>
-    </ClInclude>
-    <ClInclude Include="phoneFunc.h">
-      <Filter>헤더 파일\Part2\Phonebook</Filter>
+    <ClInclude Include="game.h">
+      <Filter>헤더 파일\Part2\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c">
-      <Filter>소스 파일\Part2\Phonebook</Filter>
+    <ClCompile Include="g_main.c">
+      <Filter>소스 파일\Part2\Game</Filter>
     </ClCompile>
-    <ClCompile Include="screenOut.c">
-      <Filter>소스 파일\Part2\Phonebook</Filter>
+    <ClCompile Include="g_common.h">
+      <Filter>헤더 파일\Part2\Game</Filter>
     </ClCompile>
-    <ClCompile Include="phonefunc.c">
-      <Filter>소스 파일\Part2\Phonebook</Filter>
+    <ClCompile Include="game.c">
+      <Filter>소스 파일\Part2\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

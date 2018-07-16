@@ -19,15 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="common.h" />
-    <ClInclude Include="phoneData.h" />
-    <ClInclude Include="phoneFunc.h" />
-    <ClInclude Include="screenOut.h" />
+    <ClInclude Include="game.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
-    <ClCompile Include="phonefunc.c" />
-    <ClCompile Include="screenOut.c" />
+    <ClCompile Include="game.c" />
+    <ClCompile Include="g_common.h" />
+    <ClCompile Include="g_main.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
