@@ -6,12 +6,14 @@ int main(void) {
 	int isWin;
 	int com;
 	int you;
-	setMoney();
 
 	puts("자! 게임을 시작합니다.");
 	puts("");
 
+	setMoney();
+
 	while (1) {
+		setPrice();
 
 		puts("☆☆☆☆☆☆ 대결! ☆☆☆☆☆☆!!");
 		com = ChoiceOfCom();
