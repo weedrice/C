@@ -39,6 +39,9 @@
     <ClInclude Include="gameTimes.h">
       <Filter>헤더 파일\Part2\Game</Filter>
     </ClInclude>
+    <ClInclude Include="gameMoney.h">
+      <Filter>헤더 파일\Part2\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="g_main.c">
@@ -51,6 +54,9 @@
       <Filter>소스 파일\Part2\Game</Filter>
     </ClCompile>
     <ClCompile Include="gameTimes.c">
+      <Filter>소스 파일\Part2\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="gameMoney.c">
       <Filter>소스 파일\Part2\Game</Filter>
     </ClCompile>
   </ItemGroup>

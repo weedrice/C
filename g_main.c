@@ -6,9 +6,12 @@ int main(void) {
 	int isWin;
 	int com;
 	int you;
+	setMoney();
+
+	puts("자! 게임을 시작합니다.");
+	puts("");
+
 	while (1) {
-		puts("자! 게임을 시작합니다.");
-		puts("");
 
 		puts("☆☆☆☆☆☆ 대결! ☆☆☆☆☆☆!!");
 		com = ChoiceOfCom();
@@ -38,9 +41,13 @@ int main(void) {
 		playGames();
 		if (isWin == 1)
 			winGames();
+		calcMoney(isWin);
 
 		printf("승률: %d %%\n", getRate());
+		getMoney();
 		puts("");
+		if (isZero() == 1)
+			break;
 	}
 
 	puts("◇◇◇◇◇◇ 최종 결과 ◇◇◇◇◇◇");

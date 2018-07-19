@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="gameMoney.h" />
     <ClInclude Include="gameTimes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.c" />
+    <ClCompile Include="gameMoney.c" />
     <ClCompile Include="gameTimes.c" />
     <ClCompile Include="g_common.h" />
     <ClCompile Include="g_main.c" />
