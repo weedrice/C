@@ -1,16 +1,14 @@
 #include "g_common.h"
 #include "game.h"
+#include "gameTimes.h"
 
 int main(void) {
-	int games = 0;
-	int win = 0;
 	int isWin;
 	int com;
 	int you;
 	while (1) {
 		puts("자! 게임을 시작합니다.");
 		puts("");
-		games++;
 
 		puts("☆☆☆☆☆☆ 대결! ☆☆☆☆☆☆!!");
 		com = ChoiceOfCom();
@@ -37,15 +35,16 @@ int main(void) {
 		else
 			printf("당신의 선택: 보. \n");
 
+		playGames();
 		if (isWin == 1)
-			win++;
+			winGames();
 
-		printf("승률: %d %%\n", calcRate(games, win));
+		printf("승률: %d %%\n", getRate());
 		puts("");
 	}
 
 	puts("◇◇◇◇◇◇ 최종 결과 ◇◇◇◇◇◇");
-	printf("최종 승률: %d %%\n", calcRate(games, win));
+	printf("최종 승률: %d %%\n", getRate());
 	puts("이용해 주셔서 고마워요~");
 	return 0;
 }

@@ -59,8 +59,3 @@ int WhoIsWinner(int com, int you) {
 		}
 	}
 }
-
-int calcRate(int games, int win) {
-	double rate = (double)win / games;
-	return rate * 100;
-}
