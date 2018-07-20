@@ -1,16 +1,18 @@
 #include "g_common.h"
 #include "game.h"
 #include "gameTimes.h"
+#include "gameContinue.h"
 
 int main(void) {
 	int isWin;
 	int com;
 	int you;
 
-	puts("자! 게임을 시작합니다.");
-	puts("");
-
-	setMoney();
+	if (!isContinue()) {
+		puts("자! 게임을 시작합니다.");
+		puts("");
+		setMoney();
+	}
 
 	while (1) {
 		setPrice();
@@ -54,6 +56,14 @@ int main(void) {
 
 	puts("◇◇◇◇◇◇ 최종 결과 ◇◇◇◇◇◇");
 	printf("최종 승률: %d %%\n", getRate());
+
+	if (isZero()) {
+		delFile();
+	}
+	else {
+		save();
+	}
+
 	puts("이용해 주셔서 고마워요~");
 	return 0;
 }

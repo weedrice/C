@@ -6,6 +6,6 @@ void setMoney();
 void setPrice();
 void getMoney();
 void calcMoney(int whosWin);
-int isZero(int com, int user);
+int isZero();
 
 #endif

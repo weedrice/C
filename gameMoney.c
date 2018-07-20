@@ -1,4 +1,5 @@
 #include "gameMoney.h"
+#include "common.h"
 
 static int userMoney;
 static int comMoney;
@@ -43,8 +44,7 @@ void getMoney() {
 	printf("컴퓨터 머니: %d\n", comMoney);
 }
 
-void calcMoney(int whosWin)
-{
+void calcMoney(int whosWin) {
 	if (whosWin == 1) {
 		userMoney += price;
 		comMoney -= price;
@@ -56,11 +56,20 @@ void calcMoney(int whosWin)
 
 }
 
-int isZero()
-{
+int isZero() {
 	if (comMoney <= 0 || userMoney <= 0) {
 		return 1;
 	}
 
 	return 0;
+}
+
+void saveMoney(FILE* fp) {
+	fwrite(&comMoney, sizeof(int), 1, fp);
+	fwrite(&userMoney, sizeof(int), 1, fp);
+}
+
+void loadMoney(FILE* fp) {
+	fread(&comMoney, sizeof(int), 1, fp);
+	fread(&userMoney, sizeof(int), 1, fp);
 }
