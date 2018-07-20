@@ -1,8 +1,9 @@
 #include "d_common.h"
 #include "d_screenOut.h"
 #include "cusManager.h"
+#include "rentInfoAccess.h"
 
-enum{CUS_REGIST = 1, CUS_SEARCH, DVD_REGIST, DVD_SEARCH, DVD_RENT, DVD_RETURN, DVD_HISTORY, QUIT};
+enum{CUS_REGIST = 1, CUS_SEARCH, DVD_REGIST, DVD_SEARCH, DVD_RENT, DVD_RETURN, DVD_HISTORY, DVD_SELECTCUSDVD, QUIT};
 
 int main() {
 	int inputMenu = 0;
@@ -33,6 +34,9 @@ int main() {
 			break;
 		case DVD_HISTORY:
 			HistoryDVD();
+			break;
+		case DVD_SELECTCUSDVD:
+			SearchDVDByCUS();
 			break;
 		}
 

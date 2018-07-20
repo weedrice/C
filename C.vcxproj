@@ -27,6 +27,8 @@
     <ClInclude Include="dvdManager.h" />
     <ClInclude Include="d_common.h" />
     <ClInclude Include="d_screenOut.h" />
+    <ClInclude Include="rentInfo.h" />
+    <ClInclude Include="rentInfoAccess.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cusInfoAccess.c" />
@@ -35,6 +37,7 @@
     <ClCompile Include="dvdManager.c" />
     <ClCompile Include="d_main.c" />
     <ClCompile Include="d_screenOut.c" />
+    <ClCompile Include="rentInfoAccess.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

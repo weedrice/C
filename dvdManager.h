@@ -11,4 +11,6 @@ void ReturnDVD();
 
 void HistoryDVD();
 
+void SearchDVDByCUS();
+
 #endif

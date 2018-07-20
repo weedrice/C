@@ -116,18 +116,18 @@ void HistoryDVD() {
 	printf("찾는 ISBN 입력: ");
 	gets(name);
 
-	if (IsRegistISBN(name)) {
-		dvdInfo* temp = GetDVDPtrByISBN(name);
-		if (temp->numOfRentCus > 0) {
-			ShowHistoryDVD(temp->rentList, temp->numOfRentCus);
-		}
-		else {
-			printf("대여 기록이 없습니다.\n");
-			getchar();
-		}
-	}
-	else {
-		printf("찾는 ISBN이 없습니다.\n");
-		getchar();
-	}
+	PrintOutRentAllCusInfo(name);
+}
+
+void SearchDVDByCUS() {
+	char* ID[NAME_LEN];
+	printf("찾는 ID 입력: ");
+	gets(ID);
+
+	unsigned int start, end;
+	printf("대여 기간 입력: ");
+	scanf("%d %d", &start, &end);
+	getchar();
+
+	PrintOutCusAllRentInfo(ID, start, end);
 }

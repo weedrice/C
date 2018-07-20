@@ -18,7 +18,9 @@ void ShowMenu(void) {
 	printf(" 6. DVD 반납 \n");
 	printf("------------------------\n");
 	printf(" 7. DVD 대여고객 전체 조회 \n");
-	printf(" 8. 종료 \n");
+	printf(" 8. 고객 대여 DVD 전체 조회 \n");
+	printf("------------------------\n");
+	printf(" 9. 종료 \n");
 	printf("------------------------\n");
 	printf("선택> ");
 }
@@ -38,18 +40,13 @@ void ShowDVDInfo(dvdInfo* pDvd) {
 	printf("│ ▶ ISBN: %s \n", pDvd->ISBN);
 	printf("│ ▶ 제목: %s \n", pDvd->title);
 	printf("│ ▶ 장르: %s \n", getGenre(pDvd->genre));
-	printf("└---------------------------\n");
+	printf("└---------------------------\n\n");
 
 }
 
-void ShowHistoryDVD(dvdRentInfo* pDvdRent, int numRentCus) {
-	for (int i = 0; i < numRentCus; i++) {
-		printf("대여일: %d\n", pDvdRent[i].rentDay);
-		ShowCustomerInfo(GetCusPtrByID(pDvdRent[i].cusID));
-	}
-	printf("조회를 완료하였습니다.\n");
-	getchar();
-	system("cls");
+void ShowHistoryDVD(char* cusID, int rentDay) {
+	printf("대여일: %d\n", rentDay);
+	ShowCustomerInfo(GetCusPtrByID(cusID));
 }
 
 char* getGenre(int genre) {

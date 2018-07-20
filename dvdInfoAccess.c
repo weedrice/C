@@ -2,6 +2,8 @@
 #include "d_screenOut.h"
 #include "dvdInfo.h"
 #include "dvdInfoAccess.h"
+#include "rentInfo.h"
+#include "rentInfoAccess.h"
 
 #define MAX_DVD 100
 
@@ -22,15 +24,13 @@ void AddDVDInfo(char * ISBN, char * title, int genre)
 	strcpy(temp->title, title);
 	temp->genre =  genre;
 	temp->rentState = RETURNED;
-	temp->numOfRentCus = 0;
 	dvdList[numOfDVD] = temp;
 	numOfDVD++;
 
 	return numOfDVD;
 }
 
-dvdInfo * GetDVDPtrByISBN(char * ISBN)
-{
+dvdInfo * GetDVDPtrByISBN(char * ISBN) {
 	for (int i = 0; i < numOfDVD; i++) {
 		if (strcmp(ISBN, dvdList[i]->ISBN) == 0) {
 			return dvdList[i];
@@ -65,15 +65,11 @@ int IsRented(char* ISBN) {
 
 void SetRented(char* ISBN, char* ID, int rentDay) {
 	dvdInfo* temp = GetDVDPtrByISBN(ISBN);
-
 	temp->rentState = RENTED;
-	strcpy(temp->rentList[temp->numOfRentCus].cusID, ID);
-	temp->rentList[temp->numOfRentCus].rentDay = rentDay;
+	AddRentList(ISBN, ID, rentDay);
 }
 
 void SetReturned(char* ISBN) {
 	dvdInfo* temp = GetDVDPtrByISBN(ISBN);
-
 	temp->rentState = RETURNED;
-	temp->numOfRentCus++;
 }
