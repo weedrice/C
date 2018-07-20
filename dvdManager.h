@@ -5,4 +5,10 @@
 void RegistDVD();
 void SearchDVD();
 
+void RentDVD();
+
+void ReturnDVD();
+
+void HistoryDVD();
+
 #endif

@@ -28,6 +28,7 @@ void RegistCustomer() {
 
 	AddCusInfo(ID, name, num);
 	printf("가입이 완료되었습니다.\n");
+	getchar();
 		
 }
 
@@ -41,6 +42,7 @@ void SearchCusInfo() {
 	}
 	else {
 		printf("찾는 ID가 없습니다.\n");
+		getchar();
 	}
 
 }

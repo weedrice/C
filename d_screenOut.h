@@ -8,6 +8,7 @@
 void ShowMenu();
 void ShowCustomerInfo(cusInfo* pCus);
 void ShowDVDInfo(dvdInfo* pDvd);
+void ShowHistoryDVD(dvdRentInfo* pDvdRent, int numRentCus);
 char* getGenre(int genre);
 
 #endif

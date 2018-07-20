@@ -1,5 +1,6 @@
 #include "d_common.h"
 #include "cusInfo.h"
+#include "cusInfoAccess.h"
 #include "dvdInfoAccess.h"
 #include "d_screenOut.h"
 
@@ -13,25 +14,25 @@ void ShowMenu(void) {
 	printf(" 3. DVD 등록 \n");
 	printf(" 4. DVD 검색 \n");
 	printf("------------------------\n");
-	printf(" 5. 종료 \n");
+	printf(" 5. DVD 대여 \n");
+	printf(" 6. DVD 반납 \n");
+	printf("------------------------\n");
+	printf(" 7. DVD 대여고객 전체 조회 \n");
+	printf(" 8. 종료 \n");
 	printf("------------------------\n");
 	printf("선택> ");
 }
 
 void ShowCustomerInfo(cusInfo* pCus) {
-	system("cls");
 
 	printf("┌---------------------------\n");
 	printf("│ ▶ ID: %s \n", pCus->ID);
 	printf("│ ▶ 이름: %s \n", pCus->name);
 	printf("│ ▶ 전화번호: %s \n", pCus->phoneNum);
 	printf("└---------------------------\n");
-
-	getchar();
 }
 
 void ShowDVDInfo(dvdInfo* pDvd) {
-	system("cls");
 
 	printf("┌---------------------------\n");
 	printf("│ ▶ ISBN: %s \n", pDvd->ISBN);
@@ -39,7 +40,16 @@ void ShowDVDInfo(dvdInfo* pDvd) {
 	printf("│ ▶ 장르: %s \n", getGenre(pDvd->genre));
 	printf("└---------------------------\n");
 
+}
+
+void ShowHistoryDVD(dvdRentInfo* pDvdRent, int numRentCus) {
+	for (int i = 0; i < numRentCus; i++) {
+		printf("대여일: %d\n", pDvdRent[i].rentDay);
+		ShowCustomerInfo(GetCusPtrByID(pDvdRent[i].cusID));
+	}
+	printf("조회를 완료하였습니다.\n");
 	getchar();
+	system("cls");
 }
 
 char* getGenre(int genre) {
