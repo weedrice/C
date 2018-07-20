@@ -1,12 +1,12 @@
 #include "d_common.h"
 #include "d_screenOut.h"
-#include "cusManager.h"
-#include "rentInfoAccess.h"
+#include "blManager.h"
 
-enum{CUS_REGIST = 1, CUS_SEARCH, DVD_REGIST, DVD_SEARCH, DVD_RENT, DVD_RETURN, DVD_HISTORY, DVD_SELECTCUSDVD, QUIT};
+enum { CUS_REGIST = 1, CUS_SEARCH, DVD_REGIST, DVD_SEARCH, DVD_RENT, DVD_RETURN, DVD_HISTORY, DVD_SELECTCUSDVD, QUIT };
 
 int main() {
 	int inputMenu = 0;
+	LoadData();
 
 	while (1) {
 		ShowMenu();
@@ -46,5 +46,5 @@ int main() {
 		}
 	}
 
-	return 0;
+	return;
 }

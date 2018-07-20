@@ -15,6 +15,8 @@ void AddRentList(char* ISBN, char* cusID, int rentDay) {
 	strcpy(rentList[numOfRentCus].ISBN, ISBN);
 	rentList[numOfRentCus].rentDay = rentDay;
 	numOfRentCus++;
+
+	SaveRentList();
 }
 
 void PrintOutRentAllCusInfo(char* ISBN) {
@@ -38,3 +40,24 @@ void PrintOutCusAllRentInfo(char* ID, unsigned int start, unsigned int end) {
 	getchar();
 }
 
+void SaveRentList() {
+	FILE* fp = fopen("rentData.dat", "wb");
+	if (fp == NULL)
+		return;
+
+	fwrite(&numOfRentCus, sizeof(int), 1, fp);
+	fwrite(rentList, sizeof(dvdInfo), numOfRentCus, fp);
+
+	fclose(fp);
+}
+
+void LoadRentList() {
+	FILE* fp = fopen("rentData.dat", "rb");
+	if (fp == NULL)
+		return;
+
+	fread(&numOfRentCus, sizeof(int), 1, fp);
+	fread(rentList, sizeof(dvdInfo), numOfRentCus, fp);
+
+	fclose(fp);
+}

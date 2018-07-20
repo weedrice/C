@@ -48,13 +48,7 @@
     <ClInclude Include="cusInfoAccess.h">
       <Filter>헤더 파일\Part2\DVD</Filter>
     </ClInclude>
-    <ClInclude Include="cusManager.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
     <ClInclude Include="d_screenOut.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
-    <ClInclude Include="dvdManager.h">
       <Filter>헤더 파일\Part2\DVD</Filter>
     </ClInclude>
     <ClInclude Include="dvdInfoAccess.h">
@@ -69,6 +63,9 @@
     <ClInclude Include="rentInfoAccess.h">
       <Filter>헤더 파일\Part2\DVD</Filter>
     </ClInclude>
+    <ClInclude Include="blManager.h">
+      <Filter>헤더 파일\Part2\DVD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="d_main.c">
@@ -77,19 +74,16 @@
     <ClCompile Include="d_screenOut.c">
       <Filter>소스 파일\Part2\DVD</Filter>
     </ClCompile>
-    <ClCompile Include="cusManager.c">
-      <Filter>소스 파일\Part2\DVD</Filter>
-    </ClCompile>
     <ClCompile Include="cusInfoAccess.c">
-      <Filter>소스 파일\Part2\DVD</Filter>
-    </ClCompile>
-    <ClCompile Include="dvdManager.c">
       <Filter>소스 파일\Part2\DVD</Filter>
     </ClCompile>
     <ClCompile Include="dvdInfoAccess.c">
       <Filter>소스 파일\Part2\DVD</Filter>
     </ClCompile>
     <ClCompile Include="rentInfoAccess.c">
+      <Filter>소스 파일\Part2\DVD</Filter>
+    </ClCompile>
+    <ClCompile Include="blManager.c">
       <Filter>소스 파일\Part2\DVD</Filter>
     </ClCompile>
   </ItemGroup>

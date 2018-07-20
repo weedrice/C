@@ -27,6 +27,9 @@ void AddDVDInfo(char * ISBN, char * title, int genre)
 	dvdList[numOfDVD] = temp;
 	numOfDVD++;
 
+	//savepoint
+	SaveDVDList();
+
 	return numOfDVD;
 }
 
@@ -67,9 +70,42 @@ void SetRented(char* ISBN, char* ID, int rentDay) {
 	dvdInfo* temp = GetDVDPtrByISBN(ISBN);
 	temp->rentState = RENTED;
 	AddRentList(ISBN, ID, rentDay);
+	//savepoint
+	SaveDVDList();
 }
 
 void SetReturned(char* ISBN) {
 	dvdInfo* temp = GetDVDPtrByISBN(ISBN);
 	temp->rentState = RETURNED;
+	//savepoint
+	SaveDVDList();
+}
+
+void SaveDVDList() {
+	FILE* fp = fopen("dvdData.dat", "wb");
+	if (fp == NULL)
+		return;
+
+	fwrite(&numOfDVD, sizeof(int), 1, fp);
+
+	for (int i = 0; i < numOfDVD; i++) {
+		fwrite(dvdList[i], sizeof(dvdInfo), 1, fp);
+	}
+
+	fclose(fp);
+}
+
+void LoadDVDList() {
+	FILE* fp = fopen("dvdData.dat", "rb");
+	if (fp == NULL)
+		return;
+
+	fread(&numOfDVD, sizeof(int), 1, fp);
+
+	for (int i = 0; i < numOfDVD; i++) {
+		dvdList[i] = (dvdInfo*)malloc(sizeof(dvdInfo));
+		fread(dvdList[i], sizeof(dvdInfo), 1, fp);
+	}
+
+	fclose(fp);
 }

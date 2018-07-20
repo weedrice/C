@@ -19,22 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="blManager.h" />
     <ClInclude Include="cusInfo.h" />
     <ClInclude Include="cusInfoAccess.h" />
-    <ClInclude Include="cusManager.h" />
     <ClInclude Include="dvdInfo.h" />
     <ClInclude Include="dvdInfoAccess.h" />
-    <ClInclude Include="dvdManager.h" />
     <ClInclude Include="d_common.h" />
     <ClInclude Include="d_screenOut.h" />
     <ClInclude Include="rentInfo.h" />
     <ClInclude Include="rentInfoAccess.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="blManager.c" />
     <ClCompile Include="cusInfoAccess.c" />
-    <ClCompile Include="cusManager.c" />
     <ClCompile Include="dvdInfoAccess.c" />
-    <ClCompile Include="dvdManager.c" />
     <ClCompile Include="d_main.c" />
     <ClCompile Include="d_screenOut.c" />
     <ClCompile Include="rentInfoAccess.c" />
