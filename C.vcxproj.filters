@@ -31,39 +31,42 @@
     <Filter Include="헤더 파일\Part2\Game">
       <UniqueIdentifier>{e065a97d-76eb-4d7a-b90b-10a574f882ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Part2\DVD">
+      <UniqueIdentifier>{675c4bee-9003-493e-8aaf-b449bb21c6bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Part2\DVD">
+      <UniqueIdentifier>{0e005dbf-e02f-441b-9015-02627f338f64}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game.h">
-      <Filter>헤더 파일\Part2\Game</Filter>
+    <ClInclude Include="d_common.h">
+      <Filter>헤더 파일\Part2\DVD</Filter>
     </ClInclude>
-    <ClInclude Include="gameTimes.h">
-      <Filter>헤더 파일\Part2\Game</Filter>
+    <ClInclude Include="cusInfo.h">
+      <Filter>헤더 파일\Part2\DVD</Filter>
     </ClInclude>
-    <ClInclude Include="gameMoney.h">
-      <Filter>헤더 파일\Part2\Game</Filter>
+    <ClInclude Include="cusInfoAccess.h">
+      <Filter>헤더 파일\Part2\DVD</Filter>
     </ClInclude>
-    <ClInclude Include="gameContinue.h">
-      <Filter>헤더 파일\Part2\Game</Filter>
+    <ClInclude Include="cusManager.h">
+      <Filter>헤더 파일\Part2\DVD</Filter>
+    </ClInclude>
+    <ClInclude Include="d_screenOut.h">
+      <Filter>헤더 파일\Part2\DVD</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="g_main.c">
-      <Filter>소스 파일\Part2\Game</Filter>
+    <ClCompile Include="d_main.c">
+      <Filter>소스 파일\Part2\DVD</Filter>
     </ClCompile>
-    <ClCompile Include="g_common.h">
-      <Filter>헤더 파일\Part2\Game</Filter>
+    <ClCompile Include="d_screenOut.c">
+      <Filter>소스 파일\Part2\DVD</Filter>
     </ClCompile>
-    <ClCompile Include="game.c">
-      <Filter>소스 파일\Part2\Game</Filter>
+    <ClCompile Include="cusManager.c">
+      <Filter>소스 파일\Part2\DVD</Filter>
     </ClCompile>
-    <ClCompile Include="gameTimes.c">
-      <Filter>소스 파일\Part2\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="gameMoney.c">
-      <Filter>소스 파일\Part2\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="gameContinue.c">
-      <Filter>소스 파일\Part2\Game</Filter>
+    <ClCompile Include="cusInfoAccess.c">
+      <Filter>소스 파일\Part2\DVD</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
