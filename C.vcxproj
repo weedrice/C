@@ -19,23 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="blManager.h" />
-    <ClInclude Include="cusInfo.h" />
-    <ClInclude Include="cusInfoAccess.h" />
-    <ClInclude Include="dvdInfo.h" />
-    <ClInclude Include="dvdInfoAccess.h" />
-    <ClInclude Include="d_common.h" />
-    <ClInclude Include="d_screenOut.h" />
-    <ClInclude Include="rentInfo.h" />
-    <ClInclude Include="rentInfoAccess.h" />
+    <ClCompile Include="blockControl.c" />
+    <ClCompile Include="cursorInfo.c" />
+    <ClCompile Include="tetrisMain.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="blManager.c" />
-    <ClCompile Include="cusInfoAccess.c" />
-    <ClCompile Include="dvdInfoAccess.c" />
-    <ClCompile Include="d_main.c" />
-    <ClCompile Include="d_screenOut.c" />
-    <ClCompile Include="rentInfoAccess.c" />
+    <ClInclude Include="blockControl.h" />
+    <ClInclude Include="blockModel.h" />
+    <ClInclude Include="cursorInfo.h" />
+    <ClInclude Include="t_common.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

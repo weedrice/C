@@ -37,54 +37,36 @@
     <Filter Include="헤더 파일\Part2\DVD">
       <UniqueIdentifier>{0e005dbf-e02f-441b-9015-02627f338f64}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Part2\Tetris">
+      <UniqueIdentifier>{1170a9bb-c82c-4962-9907-94db2e4b8af4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Part2\Tetris">
+      <UniqueIdentifier>{d72c6f7d-6880-4b83-85a4-3467a52bf105}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="d_common.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
-    <ClInclude Include="cusInfo.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
-    <ClInclude Include="cusInfoAccess.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
-    <ClInclude Include="d_screenOut.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
-    <ClInclude Include="dvdInfoAccess.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
-    <ClInclude Include="dvdInfo.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
-    <ClInclude Include="rentInfo.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
-    <ClInclude Include="rentInfoAccess.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
-    <ClInclude Include="blManager.h">
-      <Filter>헤더 파일\Part2\DVD</Filter>
-    </ClInclude>
+    <ClCompile Include="tetrisMain.c">
+      <Filter>소스 파일\Part2\Tetris</Filter>
+    </ClCompile>
+    <ClCompile Include="cursorInfo.c">
+      <Filter>소스 파일\Part2\Tetris</Filter>
+    </ClCompile>
+    <ClCompile Include="blockControl.c">
+      <Filter>소스 파일\Part2\Tetris</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="d_main.c">
-      <Filter>소스 파일\Part2\DVD</Filter>
-    </ClCompile>
-    <ClCompile Include="d_screenOut.c">
-      <Filter>소스 파일\Part2\DVD</Filter>
-    </ClCompile>
-    <ClCompile Include="cusInfoAccess.c">
-      <Filter>소스 파일\Part2\DVD</Filter>
-    </ClCompile>
-    <ClCompile Include="dvdInfoAccess.c">
-      <Filter>소스 파일\Part2\DVD</Filter>
-    </ClCompile>
-    <ClCompile Include="rentInfoAccess.c">
-      <Filter>소스 파일\Part2\DVD</Filter>
-    </ClCompile>
-    <ClCompile Include="blManager.c">
-      <Filter>소스 파일\Part2\DVD</Filter>
-    </ClCompile>
+    <ClInclude Include="t_common.h">
+      <Filter>헤더 파일\Part2\Tetris</Filter>
+    </ClInclude>
+    <ClInclude Include="blockModel.h">
+      <Filter>헤더 파일\Part2\Tetris</Filter>
+    </ClInclude>
+    <ClInclude Include="cursorInfo.h">
+      <Filter>헤더 파일\Part2\Tetris</Filter>
+    </ClInclude>
+    <ClInclude Include="blockControl.h">
+      <Filter>헤더 파일\Part2\Tetris</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
