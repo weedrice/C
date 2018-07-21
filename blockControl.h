@@ -7,7 +7,13 @@ void initBlock();
 int getSelectedBlock();
 void printBlock(char blockInfo[][4]);
 void deleteBlock(char blockInfo[][4]);
-void moveBlockDown();
+int moveBlockDown();
+
+int detectBorder(int x, int y, char blockModel[][4]);
+
+void addBlockBoard();
+
+int isGameOver();
 
 
 #endif

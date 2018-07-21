@@ -9,19 +9,32 @@
 
 
 int main() {
-	InitKeyDelayRate(10);
+	drawGameBoard();
+
+	InitKeyDelayRate(5);
+
 	RemoveCursor();
 
-	initBlockPos(START_X, START_Y);
-
-	initBlock();
-
 	while (1) {
-		
-		moveBlockDown();
+		initBlockPos(START_X, START_Y);
 
-		moveBlock();
+		initBlock();
+
+		if (isGameOver())
+			break;
+		
+		while (1) {
+			if (moveBlockDown() == 0) {
+				addBlockBoard();
+				break;
+			}
+
+			moveBlock();
+		}
 	}
+
+	SetCurrentCursorPos(10, 10);
+	puts("GAME OVER ^^");
 
 	return 0;
 }
